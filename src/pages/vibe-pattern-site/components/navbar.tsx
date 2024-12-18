@@ -35,7 +35,7 @@ export const Navbar = () => {
             <Link to='/'>
               <img
                 src='/images/main-logo.png'
-                className='hidden w-sm lg:block'
+                className='hidden w-16 lg:block'
                 alt='website_logo'
               />
             </Link>
