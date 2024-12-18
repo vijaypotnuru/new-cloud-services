@@ -1,83 +1,100 @@
-//@ts-nocheck
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Mail, Phone, Cloud, Server, Database } from 'lucide-react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { Mail, Phone } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Button } from '@/components/custom/button'
+
 
 export const LuxurySection = () => {
   const navigate = useNavigate()
+  
   useEffect(() => {
     AOS.init({
-      duration: 5000,
+      duration: 1000,
       once: true,
     })
   }, [])
 
   return (
-    <section className='bg-mediumBlack'>
-      <div className='container mx-auto py-20 sm:overflow-hidden lg:overflow-auto 2xl:py-[120px]'>
-        <div className='flex flex-col items-center justify-between md:flex-row'>
-          <div className='flex-1' data-aos='zoom-in-up'>
+    <section className='bg-gradient-to-b from-blue-50 to-indigo-100'>
+      <div className='container mx-auto py-20 px-4 sm:overflow-hidden lg:overflow-auto 2xl:py-32'>
+        <div className='flex flex-col items-center justify-between gap-12 md:flex-row'>
+          <div className='flex-1' data-aos='fade-right'>
             <img
-              src='/images/about-thumb.png'
-              alt='Interior Design'
-              className='h-full w-full'
+              src='https://blog.emb.global/wp-content/uploads/2024/04/image-2-1024x574.png'
+              alt='Cloud Infrastructure'
+              className='h-full w-full rounded-lg shadow-xl'
             />
           </div>
           <div
-            className='mt-10 flex-1 space-y-3 font-serif md:ml-10 md:mt-0 lg:ml-[90px] xl:space-y-4 2xl:ml-[100px]'
-            data-aos='zoom-in-down'
+            className='flex-1 space-y-6 font-sans md:ml-10'
+            data-aos='fade-left'
           >
-            <h5 className='text-base font-medium leading-[26px] text-[#C19D68]'>
-              INTERIOR DESIGN EXPERTS 
+            <h5 className='text-lg font-semibold leading-6 text-blue-600'>
+              CLOUD SERVICES EXPERTS
             </h5>
-            <h1 className='my-4 text-[22px] leading-6 text-black sm:text-2xl md:text-[21px] md:leading-7 lg:leading-[30px] xl:text-3xl  2xl:text-[38px]  2xl:leading-[44px]'>
-              TRANSFORMING SPACES INTO LUXURIOUS LIVING
+            <h1 className='text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl'>
+              Transforming Businesses with Cloud Innovation
             </h1>
-            <p className='font-serif text-sm font-normal leading-[26px] text-gray-400 md:text-sm lg:text-base xl:text-base'>
-              Cloud Services Hub stands as a pioneering force in enterprise
-              cloud computing and digital transformation, specializing in
-              comprehensive cloud hosting, storage, and advanced computing
-              solutions.
+            <p className='text-lg leading-relaxed text-gray-700'>
+              Cloud Services Hub stands as a pioneering force in enterprise cloud computing and digital transformation, specializing in comprehensive cloud hosting, storage, and advanced computing solutions.
             </p>
-            <p className='mt-5 font-serif text-sm font-normal leading-[26px] text-gray-400 sm:text-base'>
-              As a leading organization in the field of cloud infrastructure,
-              managed services, database management, and DevOps automation, we
-              currently focus on delivering scalable cloud architectures that
-              drive business innovation. At Cloud Services Hub, we emphasize
-              technical excellence and enterprise-grade reliability in the IT
-              sector.
+            <p className='text-lg leading-relaxed text-gray-700'>
+              As a leading organization in cloud infrastructure, managed services, database management, and DevOps automation, we deliver scalable cloud architectures that drive business innovation. We emphasize technical excellence and enterprise-grade reliability in the IT sector.
             </p>
-            <p className='mt-5 font-serif text-sm font-normal leading-[26px] text-gray-400 sm:text-base'>
-              Our state-of-the-art data centers and operations facilities serve
-              as innovation hubs where we provide cutting-edge cloud solutions
-              for thousands of businesses worldwide.
-            </p>
-            <p className='mt-5 font-serif text-sm font-normal leading-[26px] text-gray-400 sm:text-base'>
-              Cloud Services Hub was established in August 2014 and maintains
-              its headquarters in Seattle, Washington (state), United States,
-              with additional data centers strategically located across North
-              America, Europe, and Asia-Pacific regions to ensure optimal
-              performance and reliability for our global client base.
-            </p>
-            <div className='bg-[#F8F6F3] px-[30px] py-5'>
-              <p className='3xl:leading-[50px] font-serif text-sm font-medium leading-10 text-[rgb(30,30,30)]  sm:text-base'>
-                Visakhapatnam, Andhra Pradesh, India
+            <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
+              <FeatureCard
+                icon={<Cloud className="h-8 w-8 text-blue-500" />}
+                title="Cloud Hosting"
+                description="Scalable and secure hosting solutions for your applications"
+              />
+              <FeatureCard
+                icon={<Server className="h-8 w-8 text-blue-500" />}
+                title="Managed Services"
+                description="24/7 monitoring and management of your cloud infrastructure"
+              />
+              <FeatureCard
+                icon={<Database className="h-8 w-8 text-blue-500" />}
+                title="Database Management"
+                description="Optimized database solutions for high performance"
+              />
+              <FeatureCard
+                icon={<Cloud className="h-8 w-8 text-blue-500" />}
+                title="DevOps Automation"
+                description="Streamline your development and deployment processes"
+              />
+            </div>
+            <div className='rounded-lg bg-white p-6 shadow-md'>
+              <p className='text-lg font-medium text-gray-800'>
+                Headquarters: Visakhapatnam, India
               </p>
-              <p className='font-serif text-sm font-medium leading-10 text-[rgb(30,30,30)]  sm:text-base'>
-                Phone: (+91) 6309483713
+              <p className='mt-2 flex items-center text-lg text-gray-600'>
+                <Phone className="mr-2 h-5 w-5 text-blue-500" />
+                (+91) 78936 83143
+              </p>
+              <p className='mt-2 flex items-center text-lg text-gray-600'>
+                <Mail className="mr-2 h-5 w-5 text-blue-500" />
+                contact@invtechnologies.com
               </p>
             </div>
-            <button
-              onClick={() => navigate('/service')}
-              className='mt-[30px] bg-[#C19D68] px-10 py-4 text-white'
-            >
-              DISCOVER MORE
-            </button>
+            <Button size="lg" onClick={() => navigate('/services')}>
+              Explore Our Services
+            </Button>
           </div>
         </div>
       </div>
     </section>
   )
 }
+
+const FeatureCard = ({ icon, title, description }) => (
+  <div className="flex items-start space-x-4">
+    <div className="flex-shrink-0">{icon}</div>
+    <div>
+      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+      <p className="mt-1 text-gray-600">{description}</p>
+    </div>
+  </div>
+)
+

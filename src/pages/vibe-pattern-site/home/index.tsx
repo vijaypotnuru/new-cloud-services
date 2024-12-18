@@ -22,14 +22,14 @@ export default function Home() {
         backgroundImage='/images/cloud-background.png'
       />
 
-      <ScrollVideoPlayer />
+      {/* <ScrollVideoPlayer /> */}
       {/* <ScrollVideoPlayer2 /> */}
       {/* <Hero2 /> */}
       {/* <LuxurySection /> */}
 
       <ManagerSection />
-      <TeamSection />
-      <TestimonialsSection />
+      {/* <TeamSection /> */}
+      {/* <TestimonialsSection /> */}
       <BlogSection />
       <FooterSection />
       <FlowingBtn />

@@ -22,14 +22,14 @@ function App() {
   }, [redirect, navigate])
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center bg-black'>
+    <div className='flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-blue-300 to-indigo-500'>
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <img
-          src='/images/main-logo-ani.gif'
+          src='/images/main-logo.png'
           width={501}
           height={60}
           alt='Company Logo'

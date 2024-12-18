@@ -31,7 +31,7 @@ export default function FlowingBtn() {
   }
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/916309483713', '_blank')
+    window.open('https://wa.me/917893683143', '_blank')
   }
 
   return (

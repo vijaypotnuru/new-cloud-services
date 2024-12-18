@@ -21,7 +21,7 @@ export const facilities = [
     title: 'Object, Block & Backup Storage',
     description:
       'Securely store and manage your data with our reliable cloud storage solutions, including backup and disaster recovery options.',
-    image: '/images/service1.png',
+    image: '/images/service2.jpg',
     align: 'left',
     features: [
       'Unlimited storage capacity',
@@ -37,7 +37,7 @@ export const facilities = [
     title: 'IaaS, PaaS & SaaS',
     description:
       'Leverage our cloud computing services to build, deploy, and manage applications with ease, using our IaaS, PaaS, and SaaS offerings.',
-    image: '/images/service1.png',
+    image: '/images/service3.jpg',
     align: 'right',
     features: [
       'Flexible compute resources',
@@ -53,7 +53,7 @@ export const facilities = [
     title: 'AI Model Training & NLP APIs',
     description:
       'Enhance your business capabilities with our AI and ML services, including model training and natural language processing APIs.',
-    image: '/images/service1.png',
+    image: '/images/service4.jpg',
     align: 'left',
     features: [
       'Pre-trained AI models',
@@ -69,7 +69,7 @@ export const facilities = [
     title: '24/7 Support & Consultation',
     description:
       'Our dedicated support team is available 24/7 to assist with all your cloud service needs, ensuring seamless operation and expert consultation.',
-    image: '/images/service1.png',
+    image: '/images/service5.jpg',
     align: 'right',
     features: [
       '24/7 technical support',

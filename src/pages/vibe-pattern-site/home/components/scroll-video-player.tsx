@@ -80,7 +80,7 @@ export default function ScrollVideoPlayer() {
             <video
               ref={videoRef}
               className='absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2 object-cover md:h-full md:w-full'
-              src='/new-vibe-pattern5.mp4'
+              src='/cloud-video.mp4'
               playsInline
               loop
             />

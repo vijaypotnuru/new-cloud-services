@@ -130,7 +130,7 @@ export function NewServicesSection() {
         </div> */}
       </div>
 
-      <Dialog>
+      {/* <Dialog>
         <DialogTrigger asChild>
           <Button
             className='fixed bottom-4 right-4 z-50 bg-white text-blue-600 shadow-lg hover:bg-blue-100'
@@ -160,7 +160,7 @@ export function NewServicesSection() {
             </div>
           )}
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
     </section>
   )
 }

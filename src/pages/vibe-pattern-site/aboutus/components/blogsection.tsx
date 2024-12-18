@@ -1,92 +1,96 @@
-//@ts-nocheck
-
 import { useEffect } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'keen-slider/keen-slider.min.css'
 import 'aos/dist/aos.css'
+import { Button } from '@/components/custom/button'
 
 const blogPosts = [
   {
-    image: '/images/blog-1.png',
-    date: '',
-    category: 'Consultation',
-    title: 'Understanding your vision, preferences, and goals.',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZXP4zpkTJx-H818YXTqikbzWs_OG4JxfGBw&s',
+    date: 'May 15, 2023',
+    category: 'Cloud Migration',
+    title:
+      'Streamlining Your Journey to the Cloud: Best Practices for Seamless Migration',
+    excerpt:
+      'Discover key strategies to ensure a smooth transition to cloud infrastructure while minimizing downtime and maximizing efficiency.',
     animation: 'fade-up',
   },
   {
-    image: '/images/blog-2.png',
-    date: '',
-    category: 'Concept Development',
-    title: 'Creating a design plan with visuals,layouts, and mood boards',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf1OMu6J5YTObN2sXpNFBBJdhiItfK-yh41A&s',
+    date: 'June 2, 2023',
+    category: 'Serverless',
+    title:
+      'Embracing Serverless Architecture: Scaling Your Applications with Ease',
+    excerpt:
+      'Learn how serverless computing can revolutionize your development process and reduce operational overhead.',
     animation: 'fade-down',
   },
   {
-    image: '/images/blog-3.png',
-    date: '',
-    category: 'Design Refinement',
-    title: 'Fine-tuning details to ensure the perfect fit.',
+    image:
+      'https://assets.aboutamazon.com/dims4/default/8b6a960/2147483647/strip/true/crop/2548x1434+1+0/resize/2640x1486!/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F47%2F92%2F20cd4a824100b41ddc40f377b103%2Fhero-001-dallin-tasha-fidel-aws-employees-full-length-final-color-mix-v2-mp4-mp4-00-03-46-14-still023-copy-2-2.JPG',
+    date: 'June 20, 2023',
+    category: 'AI & ML',
+    title: 'Harnessing the Power of AI and ML in the Cloud',
+    excerpt:
+      'Explore how cloud-based AI and machine learning services can drive innovation and unlock new possibilities for your business.',
     animation: 'fade-up',
   },
   {
-    image: '/images/blog-4.png',
-    date: '',
-    category: 'Execution',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMNiCbyKHExMpDKuB1JdMgLpKdUL9z3oJsig&s',
+    date: 'July 5, 2023',
+    category: 'Security',
     title:
-      'Bringing your design to life with top-quality materials and skilled craftsmanship.',
+      'Fortifying Your Cloud: Advanced Security Measures for the Modern Enterprise',
+    excerpt:
+      'Dive into cutting-edge security practices to protect your cloud infrastructure from evolving cyber threats.',
     animation: 'fade-up',
   },
 ]
 
 const BlogPost = ({ post }: { post: (typeof blogPosts)[number] }) => (
   <div
-    className='3xl:w-[410px] group overflow-hidden'
+    className='group overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:shadow-xl'
     data-aos={post.animation}
     data-aos-duration='1000'
   >
-    <div className='relative'>
-      <img src={post.image} className='h-full w-full object-cover' alt='' />
+    <div className='relative aspect-video overflow-hidden'>
+      <img
+        src={post.image}
+        className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
+        alt={post.title}
+      />
     </div>
-    <div className='border border-t-0 border-[#e8e8e8] font-serif dark:border-[#424242]'>
-      <div className='px-[30px] py-6 lg:px-5 xl:px-[25px]'>
-        <div className='flex items-center space-x-6'>
-          {[post.date, post.category].map((item, index) => (
-            <p
-              key={index}
-              className='relative ml-3 mr-7 font-serif text-sm uppercase leading-[26px] text-gray-600 before:absolute before:left-[-13px] before:top-[9px] before:h-[7px] before:w-[7px] before:bg-[#d1d1d1] dark:before:bg-primary lg:text-base'
-            >
-              {item}
-            </p>
-          ))}
-        </div>
-        <Link to='/blog'>
-          <h2 className='py-2 font-serif text-xl leading-[34px]  text-black underline-offset-2 hover:underline  sm:py-3 sm:text-[22px] md:py-4 xl:text-2xl 2xl:text-[26px]'>
-            {post.title}
-          </h2>
-        </Link>
+    <div className='p-6'>
+      <div className='mb-4 flex items-center space-x-4 text-sm text-gray-600'>
+        <time dateTime={post.date}>{post.date}</time>
+        <span className='rounded-full bg-blue-100 px-3 py-1 text-blue-800'>
+          {post.category}
+        </span>
       </div>
-      {/* <div className='border-t-[1px] border-[#e8e8e8] py-2 dark:border-[#424242] lg:py-3'>
-        <div className='flex items-center justify-between px-[30px]'>
-          <div>
-            <span className='flex items-center text-sm sm:text-base'>
-              <span className='ml-[10px] font-medium uppercase leading-[38px] text-black underline-offset-1 hover:underline group-hover:text-[#c19d68] '>
-                Read More
-              </span>
-            </span>
-          </div>
-          <span>
-            <ArrowRight className='h-6 w-6 text-gray-600 group-hover:text-[#c19d68]' />
-          </span>
-        </div>
-      </div> */}
+      <Link to={`/blog/${post.title.toLowerCase().replace(/ /g, '-')}`}>
+        <h2 className='mb-2 text-xl font-bold text-gray-800 transition-colors duration-300 hover:text-blue-600'>
+          {post.title}
+        </h2>
+      </Link>
+      <p className='mb-4 text-gray-600'>{post.excerpt}</p>
+      <Link
+        to={`/blog/${post.title.toLowerCase().replace(/ /g, '-')}`}
+        className='inline-flex items-center text-blue-600 transition-colors duration-300 hover:text-blue-800'
+      >
+        Read More <ArrowRight className='ml-2 h-4 w-4' />
+      </Link>
     </div>
   </div>
 )
 
 export const BlogSection = () => {
-  const [sliderRef] = useKeenSlider({
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: 3,
       spacing: 20,
@@ -109,39 +113,51 @@ export const BlogSection = () => {
   }, [])
 
   return (
-    <section className='container mx-auto py-20 lg:py-[120px]'>
-      <div
-        className='mx-auto px-5 text-center sm:px-8 md:px-[80px] lg:px-[120px] xl:px-[200px] 2xl:px-[335px]'
-        data-aos='fade-up'
-        data-aos-duration='1000'
-      >
-        <div className='mb-4 flex items-center justify-center space-x-2'>
-          <hr className='h-[1px] w-[100px] text-[#dedbd4] dark:text-[#3b3b3b]' />
-          <img
-            src='/images/inner-logo.png'
-            alt='room_section_logo'
-            className='h-[50px] w-[50px]'
-          />
-          <hr className='h-[1px] w-[100px] text-[#c19d68]' />
+    <section className='bg-gradient-to-b from-blue-50 to-indigo-100 py-20 lg:py-32'>
+      <div className='container mx-auto px-4'>
+        <div
+          className='mb-12 text-center'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+        >
+          <h2 className='mb-4 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl'>
+            Latest Insights from Our Cloud Experts
+          </h2>
+          <p className='mx-auto max-w-2xl text-xl text-gray-600'>
+            Stay informed about the latest trends, best practices, and
+            innovations in cloud technology to keep your business at the
+            forefront of digital transformation.
+          </p>
         </div>
-        <h1 className='mb-[8px] font-serif text-xl uppercase leading-[44px] text-black sm:text-2xl  md:text-3xl lg:leading-[52px] 2xl:text-[38px]'>
-          OUR DESIGN PROCESS
-        </h1>
-        <p className='dark:text-lightGray font-serif text-sm font-normal leading-[26px] text-gray-400 sm:text-base'>
-          Our design process is centered around understanding your unique needs
-          and preferences. We strive to create spaces that are not only
-          aesthetically pleasing but also functional and tailored to your
-          lifestyle.
-        </p>
-      </div>
 
-      <div className='relative'>
-        <div ref={sliderRef} className='keen-slider mt-14 2xl:mt-[60px]'>
-          {blogPosts.map((post, index) => (
-            <div key={index} className='keen-slider__slide'>
-              <BlogPost post={post} />
-            </div>
-          ))}
+        <div className='relative'>
+          <div ref={sliderRef} className='keen-slider'>
+            {blogPosts.map((post, index) => (
+              <div key={index} className='keen-slider__slide'>
+                <BlogPost post={post} />
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => instanceRef.current?.prev()}
+            className='absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow-md transition-all hover:bg-blue-100'
+            aria-label='Previous slide'
+          >
+            <ArrowLeft className='h-6 w-6 text-blue-600' />
+          </button>
+          <button
+            onClick={() => instanceRef.current?.next()}
+            className='absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow-md transition-all hover:bg-blue-100'
+            aria-label='Next slide'
+          >
+            <ArrowRight className='h-6 w-6 text-blue-600' />
+          </button>
+        </div>
+
+        <div className='mt-12 text-center'>
+          <Button asChild size='lg'>
+            <Link to='/blog'>View All Articles</Link>
+          </Button>
         </div>
       </div>
     </section>

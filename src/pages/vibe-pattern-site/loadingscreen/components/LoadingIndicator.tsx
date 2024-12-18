@@ -11,7 +11,7 @@ function LoadingIndicator() {
       {[0, 1, 2].map((index) => (
         <motion.div
           key={index}
-          className="w-3 h-3 bg-[#C19D68] rounded-full"
+          className="w-3 h-3 bg-indigo-500 rounded-full"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.7, 1, 0.7],
