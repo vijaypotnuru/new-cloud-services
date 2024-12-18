@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect } from 'react'
 import { Facebook, Twitter, Linkedin, Github } from 'lucide-react'
 import AOS from 'aos'

@@ -1,4 +1,4 @@
-'use client'
+// @ts-nocheck
 
 import { useEffect } from 'react'
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react'

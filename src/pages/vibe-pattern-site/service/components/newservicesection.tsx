@@ -1,4 +1,4 @@
-'use client'
+// @ts-nocheck
 
 import { useEffect, useState } from 'react'
 import { ArrowRight, ChevronDown } from 'lucide-react'

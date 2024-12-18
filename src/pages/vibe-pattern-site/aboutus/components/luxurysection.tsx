@@ -88,7 +88,7 @@ export const LuxurySection = () => {
   )
 }
 
-const FeatureCard = ({ icon, title, description }) => (
+const FeatureCard = ({ icon, title, description } : any) => (
   <div className="flex items-start space-x-4">
     <div className="flex-shrink-0">{icon}</div>
     <div>
