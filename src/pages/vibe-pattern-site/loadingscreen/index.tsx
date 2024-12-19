@@ -11,7 +11,7 @@ function App() {
     const user = localStorage.getItem('user')
     if (user) {
       // Navigate to the dashboard if the user is logged in
-      navigate('/dashboard')
+      navigate('/home')
     } else {
       // If no user is found, set a timer to redirect to the sign-in page
       const timer = setTimeout(() => {

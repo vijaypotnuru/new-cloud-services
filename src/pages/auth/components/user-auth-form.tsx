@@ -50,7 +50,7 @@ export function UserAuthForm() {
           description: 'Welcome to your cloud services dashboard!',
           variant: 'default',
         })
-        navigate('/dashboard')
+        navigate('/')
       } else {
         // Failed login
         toast({

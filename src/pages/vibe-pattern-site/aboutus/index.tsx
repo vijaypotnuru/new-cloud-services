@@ -26,7 +26,7 @@ export default function AboutUs() {
     const user = localStorage.getItem('user')
     if (user) {
       // Navigate to the dashboard if the user is logged in
-      navigate('/dashboard')
+      // navigate('/')
     } else {
       // If no user is found, set a timer to redirect to the sign-in page
       const timer = setTimeout(() => {
