@@ -8,16 +8,23 @@ function App() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setRedirect(true)
-    }, 5000)
+    const user = localStorage.getItem('user')
+    if (user) {
+      // Navigate to the dashboard if the user is logged in
+      navigate('/dashboard')
+    } else {
+      // If no user is found, set a timer to redirect to the sign-in page
+      const timer = setTimeout(() => {
+        setRedirect(true)
+      }, 3000)
 
-    return () => clearTimeout(timer)
-  }, [])
+      return () => clearTimeout(timer)
+    }
+  }, [navigate])
 
   useEffect(() => {
     if (redirect) {
-      navigate('/home')
+      navigate('/sign-in')
     }
   }, [redirect, navigate])
 

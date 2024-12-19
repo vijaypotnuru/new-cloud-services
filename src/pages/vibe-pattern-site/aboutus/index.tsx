@@ -8,6 +8,8 @@ import { BlogSection } from './components/blogsection'
 import { FooterSection } from '../components/footer'
 import { ManagerSection } from './components/managersection'
 import FlowingBtn from '../components/flowingbtn'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
   /**
    * Renders the About Us page.
@@ -17,6 +19,29 @@ import FlowingBtn from '../components/flowingbtn'
    * @returns {React.ReactElement} The About Us page.
    */
 export default function AboutUs() {
+  const [redirect, setRedirect] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const user = localStorage.getItem('user')
+    if (user) {
+      // Navigate to the dashboard if the user is logged in
+      navigate('/dashboard')
+    } else {
+      // If no user is found, set a timer to redirect to the sign-in page
+      const timer = setTimeout(() => {
+        setRedirect(true)
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [navigate])
+
+  useEffect(() => {
+    if (redirect) {
+      navigate('/sign-in')
+    }
+  }, [redirect, navigate])
   return (
     <div className='min-h-screen bg-white'>
       <Navbar />

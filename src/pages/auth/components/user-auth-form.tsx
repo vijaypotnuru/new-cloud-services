@@ -1,73 +1,29 @@
-// @ts-nocheck
-import { HTMLAttributes } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/custom/button'
-import { PasswordInput } from '@/components/custom/password-input'
-import { cn } from '@/lib/utils'
-import { useMutation } from '@tanstack/react-query'
 import { useToast } from '@/components/ui/use-toast'
-
-import { useAuth } from '@/hooks/use-auth'
-import { loginUser } from '@/http/api'
-
-interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {}
+import { Loader2 } from 'lucide-react'
 
 const formSchema = z.object({
-  user_id: z.string().min(1, { message: 'Please enter your user ID' }),
-  password: z
-    .string()
-    .min(1, {
-      message: 'Please enter your password',
-    })
-    .min(7, {
-      message: 'Password must be at least 7 characters long',
-    }),
+  user_id: z.string().min(1, { message: 'User ID is required' }).max(20, { message: 'User ID must not exceed 20 characters' }),
+  password: z.string().min(8, { message: 'Password must be at least 8 characters long' }),
 })
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
-  const { setUser } = useAuth()
+// Predefined user credentials (in a real app, this would be handled securely on the server)
+const VALID_USERS = [
+  { user_id: 'admin123', password: 'admin123!', role: 'admin' },
+  { user_id: 'user123', password: '123@Apple', role: 'user' },
+]
+
+export function UserAuthForm() {
   const { toast } = useToast()
   const navigate = useNavigate()
-  const mutation = useMutation({
-    mutationFn: loginUser,
-    onSuccess: (data) => {
-      setUser(data.data.result)
-      toast({
-        title: 'User Login successfully',
-        variant: 'default',
-      })
-
-      console.log('data.data.result.user_role', data.data.result)
-      if (data.data.result.user_role === 'Admin') {
-        navigate('/main/projects')
-        // window.location.reload()
-      } else {
-        navigate('/user')
-        // window.location.reload()
-      }
-    },
-    onError: (error: any) => {
-      const errorMessage = error.response.data.error || 'Failed to login.'
-      toast({
-        title: `${errorMessage}`,
-        variant: 'destructive',
-      })
-      console.log('login failed', error)
-    },
-  })
+  const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -78,55 +34,80 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data)
-    mutation.mutate(data)
+    setIsLoading(true)
+
+    // Simulate API call delay
+    setTimeout(() => {
+      const validUser = VALID_USERS.find(
+        (user) => user.user_id === data.user_id && user.password === data.password
+      )
+
+      if (validUser) {
+        // Successful login
+        localStorage.setItem('user', JSON.stringify({ user_id: data.user_id, role: validUser.role }))
+        toast({
+          title: 'Login Successful',
+          description: 'Welcome to your cloud services dashboard!',
+          variant: 'default',
+        })
+        navigate('/dashboard')
+      } else {
+        // Failed login
+        toast({
+          title: 'Login Failed',
+          description: 'Invalid User ID or password. Please try again.',
+          variant: 'destructive',
+        })
+      }
+      setIsLoading(false)
+    }, 1000)
   }
 
   return (
-    <div className={cn('grid gap-6', className)} {...props}>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className='grid gap-2'>
-            <FormField
-              control={form.control}
-              name='user_id'
-              render={({ field }) => (
-                <FormItem className='space-y-1'>
-                  <FormLabel>User ID</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Enter your user ID' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='password'
-              render={({ field }) => (
-                <FormItem className='space-y-1'>
-                  <div className='flex items-center justify-between'>
-                    <FormLabel>Password</FormLabel>
-                    {/* <Link
-                        to='/forgot-password'
-                        className='text-sm font-medium text-muted-foreground hover:opacity-75'
-                      >
-                        Forgot password?
-                      </Link> */}
-                  </div>
-                  <FormControl>
-                    <PasswordInput placeholder='********' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button className='mt-2' loading={mutation.isPending}>
-              Login
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4 mt-6'>
+        <FormField
+          control={form.control}
+          name='user_id'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>User ID</FormLabel>
+              <FormControl>
+                <Input placeholder='Enter your User ID' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='password'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input type='password' placeholder='••••••••' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button 
+          type='submit' 
+          className='w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700'
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Logging in...
+            </>
+          ) : (
+            'Log in'
+          )}
+        </Button>
+      </form>
+    </Form>
   )
 }
+

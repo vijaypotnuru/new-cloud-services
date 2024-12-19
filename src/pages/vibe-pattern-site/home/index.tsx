@@ -12,8 +12,33 @@ import { BlogSection } from '../aboutus/components/blogsection'
 import { FooterSection } from '../components/footer'
 import ScrollVideoPlayer from './components/scroll-video-player'
 import ScrollVideoPlayer2 from './components/scroll-video-player2'
+import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [redirect, setRedirect] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const user = localStorage.getItem('user')
+    if (user) {
+      // Navigate to the dashboard if the user is logged in
+      navigate('/dashboard')
+    } else {
+      // If no user is found, set a timer to redirect to the sign-in page
+      const timer = setTimeout(() => {
+        setRedirect(true)
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [navigate])
+
+  useEffect(() => {
+    if (redirect) {
+      navigate('/sign-in')
+    }
+  }, [redirect, navigate])
   return (
     <div className='min-h-screen bg-white'>
       <Navbar />
