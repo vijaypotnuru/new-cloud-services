@@ -16,7 +16,7 @@ const formSchema = z.object({
 
 // Predefined user credentials (in a real app, this would be handled securely on the server)
 const VALID_USERS = [
-  { user_id: 'admin123', password: 'admin123!', role: 'admin' },
+  { user_id: 'admin123', password: '123@Apple', role: 'admin' },
   { user_id: 'user123', password: '123@Apple', role: 'user' },
 ]
 
