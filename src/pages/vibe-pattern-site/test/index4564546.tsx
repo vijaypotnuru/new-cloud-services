@@ -65,7 +65,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8 items-center">
-              <Link to="/home" className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-indigo-500 text-sm font-medium transition-colors duration-200">
+              <Link to="/" className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-indigo-500 text-sm font-medium transition-colors duration-200">
                 Home
               </Link>
               <Link to="/aboutus" className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-indigo-500 text-sm font-medium transition-colors duration-200">

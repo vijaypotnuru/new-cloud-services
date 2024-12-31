@@ -41,7 +41,7 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          <div className='text-lightBlack flex h-[70px] w-full items-center justify-between bg-blue-600 p-3 px-3 dark:text-white lg:hidden lg:text-white'>
+          <div className='text-lightBlack flex h-[70px] w-full items-center justify-between bg-[#2C307F] p-3 px-3 dark:text-white lg:hidden lg:text-white'>
             <div className='w-28'>
               <Link to='/'>
                 <img
@@ -62,20 +62,18 @@ export const Navbar = () => {
           </div>
 
           <ul
-            className={`${
-              isMobileMenuOpen ? 'block' : 'hidden'
-            } 3xl:space-x-[24px] relative mx-auto w-full flex-col space-x-0 space-y-2 bg-blue-600 py-3 text-left text-sm font-normal uppercase text-white ease-in-out lg:right-[67px] lg:flex lg:w-fit lg:flex-row lg:space-x-3 lg:space-y-0 lg:bg-transparent lg:py-0 lg:text-center lg:text-white dark:lg:bg-transparent xl:space-x-4 2xl:space-x-5`}
+            className={`${isMobileMenuOpen ? 'block' : 'hidden'
+              } 3xl:space-x-[24px] relative mx-auto w-full flex-col space-x-0 space-y-2 bg-[#2C307F] py-3 text-left text-sm font-normal uppercase text-white ease-in-out lg:right-[67px] lg:flex lg:w-fit lg:flex-row lg:space-x-3 lg:space-y-0 lg:bg-transparent lg:py-0 lg:text-center lg:text-white dark:lg:bg-transparent xl:space-x-4 2xl:space-x-5`}
           >
             {['Home', 'AboutUs', 'Services', 'ContactUs'].map((item) => (
               <NavLink
                 key={item}
-                to={item === 'Home' ? '/home' : `/${item.toLowerCase()}`}
+                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                 onClick={handleNavClick}
                 className={({ isActive }) =>
-                  `group relative block w-full px-3 py-2 text-white transition-all duration-300 dark:text-white lg:border-b-0 lg:text-white ${
-                    isActive
-                      ? 'text-blue-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-blue-200 after:content-[""]'
-                      : 'hover:text-blue-200'
+                  `group relative block w-full px-3 py-2 text-white transition-all duration-300 dark:text-white lg:border-b-0 lg:text-white ${isActive
+                    ? 'text-blue-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-blue-200 after:content-[""]'
+                    : 'hover:text-blue-200'
                   }`
                 }
               >

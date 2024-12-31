@@ -49,18 +49,18 @@ const router = createBrowserRouter([
   //   }),
   // },
   {
-    path: '/home',
+    path: '/',
     lazy: async () => ({
       Component: (await import('./pages/vibe-pattern-site/home')).default,
     }),
   },
-  {
-    path: '/',
-    lazy: async () => ({
-      Component: (await import('./pages/vibe-pattern-site/loadingscreen'))
-        .default,
-    }),
-  },
+  // {
+  //   path: '/',
+  //   lazy: async () => ({
+  //     Component: (await import('./pages/vibe-pattern-site/loadingscreen'))
+  //       .default,
+  //   }),
+  // },
   {
     path: '/aboutus',
     lazy: async () => ({

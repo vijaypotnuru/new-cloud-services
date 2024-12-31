@@ -89,7 +89,7 @@ export function FooterSection() {
   ]
 
   const companyLinks = [
-    { name: 'Home', link: '/home' },
+    { name: 'Home', link: '/' },
     { name: 'About Us', link: '/aboutus' },
     { name: 'Services', link: '/services' },
     { name: 'Contact Us ', link: '/contactus' },
