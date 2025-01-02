@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from "react"
+import React, { useEffect, useState, useRef, KeyboardEvent, ChangeEvent } from 'react'
 import { ArrowUp, X, MessageCircle } from 'lucide-react'
 import { Button } from '@/components/custom/button'
 import { motion } from 'framer-motion'
@@ -11,23 +11,15 @@ interface Message {
 }
 
 export default function FlowingBtn() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState<boolean>(false)
   const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput] = useState("")
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isTyping, setIsTyping] = useState(false)
-  const [isTranslating, setIsTranslating] = useState(false)
+  const [input, setInput] = useState<string>("")
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [isTyping, setIsTyping] = useState<boolean>(false)
+  const [isTranslating, setIsTranslating] = useState<boolean>(false)
   const messageEndRef = useRef<HTMLDivElement>(null)
-  const [selectedLanguage, setSelectedLanguage] = useState("en")
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("en")
   const [botMessagesInEnglish, setBotMessagesInEnglish] = useState<Message[]>([])
-
-  const scrollToBottom = () => {
-    messageEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  useEffect(() => {
-    scrollToBottom()
-  }, [messages, isTyping, isTranslating])
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -45,6 +37,14 @@ export default function FlowingBtn() {
     }
   }, [])
 
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages, isTyping, isTranslating])
+
+  const scrollToBottom = () => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
   const scrollToHero = () => {
     window.scrollTo({
       top: 0,
@@ -59,7 +59,7 @@ export default function FlowingBtn() {
   const handleSend = async () => {
     if (!input.trim()) return
 
-    const userMessage = { sender: "user", text: input }
+    const userMessage: Message = { sender: "user", text: input }
     setMessages((prevMessages) => [...prevMessages, userMessage])
     setInput("")
 
@@ -74,7 +74,7 @@ export default function FlowingBtn() {
       const data = await res.json()
       const botResponse = data.response
 
-      const botMessageInEnglish = { sender: "bot", text: botResponse || "No data Found" }
+      const botMessageInEnglish: Message = { sender: "bot", text: botResponse || "No data Found" }
       setBotMessagesInEnglish((prevMessages) => [...prevMessages, botMessageInEnglish])
 
       let translatedText = botResponse
@@ -89,10 +89,10 @@ export default function FlowingBtn() {
         translatedText = translationData.translatedText || botResponse
       }
 
-      const botMessage = { sender: "bot", text: translatedText }
+      const botMessage: Message = { sender: "bot", text: translatedText }
       setMessages((prevMessages) => [...prevMessages, botMessage])
     } catch (error) {
-      const errorMessage = {
+      const errorMessage: Message = {
         sender: "bot",
         text: "Error: Unable to fetch response.",
       }
@@ -102,7 +102,7 @@ export default function FlowingBtn() {
     }
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault()
       handleSend()
@@ -226,10 +226,11 @@ export default function FlowingBtn() {
                   className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[70%] rounded-lg p-3 ${message.sender === "user"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-secondary-foreground"
-                      }`}
+                    className={`max-w-[70%] rounded-lg p-3 ${
+                      message.sender === "user" 
+                        ? "bg-primary text-primary-foreground" 
+                        : "bg-secondary text-secondary-foreground"
+                    }`}
                   >
                     {message.text}
                   </div>
@@ -252,14 +253,14 @@ export default function FlowingBtn() {
               <input
                 type="text"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type a message..."
                 className="flex-grow border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <select
                 value={selectedLanguage}
-                onChange={(e) => handleLanguageChange(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLSelectElement>) => handleLanguageChange(e.target.value)}
                 className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="en">English</option>
