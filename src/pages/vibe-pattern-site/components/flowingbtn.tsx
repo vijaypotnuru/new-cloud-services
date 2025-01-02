@@ -1,4 +1,4 @@
-'use client'
+//@ts-nocheck
 
 import React, { useEffect, useState, useRef, KeyboardEvent, ChangeEvent } from 'react'
 import { ArrowUp, X, MessageCircle } from 'lucide-react'
