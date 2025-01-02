@@ -227,7 +227,7 @@ export default function FlowingBtn() {
                 >
                   <div
                     className={`max-w-[70%] rounded-lg p-3 ${message.sender === "user"
-                        ? "bg-primary text-primary-foreground"
+                        ? "bg-blue-700 text-primary-foreground"
                         : "bg-secondary text-secondary-foreground"
                       }`}
                   >
@@ -271,7 +271,7 @@ export default function FlowingBtn() {
                 <option value="hi">Hindi</option>
                 <option value="ta">Tamil</option>
               </select>
-              <Button onClick={handleSend}>Send</Button>
+              <Button className='bg-blue-700' onClick={handleSend}>Send</Button>
             </div>
           </div>
         </div>
