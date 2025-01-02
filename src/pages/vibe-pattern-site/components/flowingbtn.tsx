@@ -227,8 +227,8 @@ export default function FlowingBtn() {
                 >
                   <div
                     className={`max-w-[70%] rounded-lg p-3 ${message.sender === "user"
-                        ? "bg-blue-700 text-primary-foreground"
-                        : "bg-secondary text-secondary-foreground"
+                      ? "bg-blue-700 text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground"
                       }`}
                   >
                     {message.text}
