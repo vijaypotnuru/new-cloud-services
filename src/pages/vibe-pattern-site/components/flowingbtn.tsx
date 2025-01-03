@@ -66,7 +66,7 @@ export default function FlowingBtn() {
     setIsTyping(true)
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/query", {
+      const res = await fetch("api/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: input }),
@@ -80,7 +80,7 @@ export default function FlowingBtn() {
       let translatedText = botResponse
 
       if (selectedLanguage !== "en") {
-        const response = await fetch("http://127.0.0.1:5000/translate", {
+        const response = await fetch("api/translate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text: botResponse, targetLang: selectedLanguage }),
