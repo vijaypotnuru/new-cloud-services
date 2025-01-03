@@ -209,7 +209,7 @@ export default function FlowingBtn() {
               </div>
             )}
             <div className="flex justify-between items-center p-4 border-b">
-              <h2 className="text-xl font-bold">Chat with RECRUIT CRM</h2>
+              <h2 className="text-xl font-bold">Chat with Our AI Assistant</h2>
               <Button
                 variant="ghost"
                 size="icon"
