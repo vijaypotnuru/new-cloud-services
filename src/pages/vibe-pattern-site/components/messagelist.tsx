@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface Message {
     sender: 'user' | 'bot';
@@ -11,8 +11,16 @@ interface MessageListProps {
 }
 
 const MessageList: React.FC<MessageListProps> = ({ messages, isTyping }) => {
+    const messageEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (messageEndRef.current) {
+            messageEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
+
     return (
-        <div className="flex-grow overflow-y-auto p-4 space-y-4">
+        <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-red-300">
             {messages.map((message, index) => (
                 <div
                     key={index}
@@ -39,6 +47,7 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isTyping }) => {
                     </div>
                 </div>
             )}
+            <div ref={messageEndRef} />
         </div>
     );
 };
