@@ -31,11 +31,11 @@ export const Navbar = () => {
     >
       <div className='lg:px-10'>
         <div className='flex flex-col items-center justify-between lg:flex-row'>
-          <div className='w-44 lg:w-32 lg:p-4'>
+          <div className='w-44 lg:w-40 lg:p-2'>
             <Link to='/'>
               <img
                 src='/images/main-logo.png'
-                className='hidden w-16 lg:block'
+                className='hidden w-28 lg:block'
                 alt='website_logo'
               />
             </Link>
@@ -46,7 +46,7 @@ export const Navbar = () => {
               <Link to='/'>
                 <img
                   src='/images/main-logo.png'
-                  className='block lg:hidden w-9'
+                  className='block lg:hidden w-28'
                   alt='Vibe Pattern Logo'
                 />
               </Link>

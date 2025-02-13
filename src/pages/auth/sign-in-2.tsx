@@ -11,7 +11,7 @@ export default function SignIn2() {
         <div className='mb-8 text-center'>
           <img
             src='/images/main-logo.png'
-            className='mx-auto h-12 w-12 text-white'
+            className='mx-auto h-20 w-36 text-white'
           />
           <h1 className='mt-4 text-3xl font-bold text-white'>Cloud Services</h1>
         </div>
