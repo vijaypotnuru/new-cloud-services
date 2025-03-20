@@ -29,7 +29,7 @@ export function ContactSection() {
       title: 'Call Us Now (Or) Whatsapp',
       content: '(+91) 0449738637',
     },
-    { icon: Mail, title: 'Send Email', content: 'support@invtechnologies.com' },
+    { icon: Mail, title: 'Send Email', content: 'support@vextorinnovations.com' },
     {
       icon: MapPin,
       title: 'Our Locations',

@@ -116,12 +116,12 @@ export function FooterSection() {
             </p>
             <ul className='flex space-x-4'>
               <SocialIcon
-                href='https://www.facebook.com/invtechnologies2010/'
+                href='https://www.facebook.com/vextorinnovations/'
                 Icon={Facebook}
               />
               {/* <SocialIcon href='https://twitter.com/cloudtech' Icon={Twitter} /> */}
               <SocialIcon
-                href='https://www.linkedin.com/company/-i-n-v-technologies/?viewAsMember=true'
+                href='https://www.linkedin.com/company/vextorinnovations/?viewAsMember=true'
                 Icon={Linkedin}
               />
               {/* <SocialIcon href='https://github.com/cloudtech' Icon={Github} /> */}
@@ -174,7 +174,7 @@ export function FooterSection() {
               </li>
               <li className='flex items-center text-gray-300'>
                 <Mail className='mr-3 h-5 w-5 text-blue-400' />
-                info@invtechnologies.com
+                info@vextorinnovations.com
               </li>
               <li className='flex items-center text-gray-300'>
                 <MapPin className='mr-3 h-5 w-5 text-blue-400' />

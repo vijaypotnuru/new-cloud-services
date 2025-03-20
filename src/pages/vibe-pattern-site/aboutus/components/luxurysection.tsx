@@ -75,7 +75,7 @@ export const LuxurySection = () => {
               </p>
               <p className='mt-2 flex items-center text-lg text-gray-600'>
                 <Mail className="mr-2 h-5 w-5 text-blue-500" />
-                contact@invtechnologies.com
+                contact@vextorinnovations.com
               </p>
             </div>
             <Button size="lg" onClick={() => navigate('/services')}>
