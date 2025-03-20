@@ -27,7 +27,7 @@ export function ContactSection() {
     {
       icon: Phone,
       title: 'Call Us Now (Or) Whatsapp',
-      content: '(+91) 78936 83143',
+      content: '(+91) 0449738637',
     },
     { icon: Mail, title: 'Send Email', content: 'support@invtechnologies.com' },
     {

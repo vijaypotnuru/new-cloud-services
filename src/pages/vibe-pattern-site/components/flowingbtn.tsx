@@ -44,7 +44,7 @@ export default function FlowingBtn() {
   }
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/917893683143', '_blank')
+    window.open('https://wa.me/910449738637', '_blank')
   }
 
   const handleSend = async (input: string) => {

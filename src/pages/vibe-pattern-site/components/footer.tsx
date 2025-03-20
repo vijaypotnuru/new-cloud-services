@@ -170,7 +170,7 @@ export function FooterSection() {
             <ul className='mt-6 space-y-4'>
               <li className='flex items-center text-gray-300'>
                 <Phone className='mr-3 h-5 w-5 text-blue-400' />
-                (+91) 78936 83143
+                (+91) 0449738637
               </li>
               <li className='flex items-center text-gray-300'>
                 <Mail className='mr-3 h-5 w-5 text-blue-400' />
@@ -178,7 +178,7 @@ export function FooterSection() {
               </li>
               <li className='flex items-center text-gray-300'>
                 <MapPin className='mr-3 h-5 w-5 text-blue-400' />
-                Visakhapatnam, India
+                157 Nelson Street, Nhill-3418, Victoria, Australia
               </li>
             </ul>
             <Button className='mt-6 bg-blue-500 text-white hover:bg-blue-600'>

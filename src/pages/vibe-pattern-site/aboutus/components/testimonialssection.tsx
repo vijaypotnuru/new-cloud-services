@@ -16,13 +16,13 @@ const testimonials = [
   },
   {
     name: 'Sai Kumar',
-    location: 'Visakhapatnam, India',
+    location: '157 Nelson Street, Nhill-3418, Victoria, Australia',
     image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
     text: 'Outstanding interior design service! They perfectly captured our vision for our office space. The creative use of colors and space planning has significantly improved our work environment.',
   },
   {
     name: 'Naju',
-    location: 'Visakhapatnam, India',
+    location: '157 Nelson Street, Nhill-3418, Victoria, Australia',
     image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
     text: 'We are extremely satisfied with our home renovation. The designers were excellent at incorporating our cultural preferences while maintaining a contemporary feel. Their material selection was top-notch.',
   },
@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     name: 'Durga',
-    location: 'Visakhapatnam, India',
+    location: '157 Nelson Street, Nhill-3418, Victoria, Australia',
     image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
     text: 'Exceptional service from start to finish. The designers listened to our needs and created a perfect balance of luxury and comfort in our home. Their attention to budget management was impressive.',
   },

@@ -67,11 +67,11 @@ export const LuxurySection = () => {
             </div>
             <div className='rounded-lg bg-white p-6 shadow-md'>
               <p className='text-lg font-medium text-gray-800'>
-                Headquarters: Visakhapatnam, India
+                Headquarters: 157 Nelson Street, Nhill-3418, Victoria, Australia
               </p>
               <p className='mt-2 flex items-center text-lg text-gray-600'>
                 <Phone className="mr-2 h-5 w-5 text-blue-500" />
-                (+91) 78936 83143
+                (+91) 0449738637
               </p>
               <p className='mt-2 flex items-center text-lg text-gray-600'>
                 <Mail className="mr-2 h-5 w-5 text-blue-500" />
