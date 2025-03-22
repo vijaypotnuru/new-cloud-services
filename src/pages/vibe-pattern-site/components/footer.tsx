@@ -116,12 +116,12 @@ export function FooterSection() {
             </p>
             <ul className='flex space-x-4'>
               <SocialIcon
-                href='https://www.facebook.com/vextorinnovations/'
+                href='/'
                 Icon={Facebook}
               />
               {/* <SocialIcon href='https://twitter.com/cloudtech' Icon={Twitter} /> */}
               <SocialIcon
-                href='https://www.linkedin.com/company/vextorinnovations/?viewAsMember=true'
+                href='/'
                 Icon={Linkedin}
               />
               {/* <SocialIcon href='https://github.com/cloudtech' Icon={Github} /> */}
@@ -170,15 +170,15 @@ export function FooterSection() {
             <ul className='mt-6 space-y-4'>
               <li className='flex items-center text-gray-300'>
                 <Phone className='mr-3 h-5 w-5 text-blue-400' />
-                (+91) 0449738637
+                044 9738 637
               </li>
               <li className='flex items-center text-gray-300'>
                 <Mail className='mr-3 h-5 w-5 text-blue-400' />
-                info@vextorinnovations.com
+                vextorinnovations
               </li>
               <li className='flex items-center text-gray-300'>
                 <MapPin className='mr-3 h-5 w-5 text-blue-400' />
-                157 Nelson Street, Nhill-3418, Victoria, Australia
+                157 Nelson Street, Nhill-3418, Victoria, Australia.
               </li>
             </ul>
             <Button className='mt-6 bg-blue-500 text-white hover:bg-blue-600'>
@@ -214,7 +214,7 @@ export function FooterSection() {
 
       {/* Copyright */}
       <div className='bg-blue-900 py-4 text-center text-sm text-gray-400'>
-        © 2024 Inv Technologies. All Rights Reserved.
+        © 2025 Vextor Innovations. All Rights Reserved.
       </div>
     </footer>
   )

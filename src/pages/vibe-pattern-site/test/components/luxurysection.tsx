@@ -46,7 +46,7 @@ export const LuxurySection = () => {
             </p>
             <div className='bg-[#F8F6F3] px-[30px] py-5'>
               <p className='3xl:leading-[50px] font-serif text-sm font-medium leading-10 text-[rgb(30,30,30)]  sm:text-base'>
-                Visakhapatnam, Andhra Pradesh, India
+              157 Nelson Street, Nhill-3418, Victoria, Australia.
               </p>
               <p className='font-serif text-sm font-medium leading-10 text-[rgb(30,30,30)]  sm:text-base'>
                 Phone: (+91) 6309483713

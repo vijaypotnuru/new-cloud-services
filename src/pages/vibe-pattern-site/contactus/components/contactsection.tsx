@@ -27,13 +27,13 @@ export function ContactSection() {
     {
       icon: Phone,
       title: 'Call Us Now (Or) Whatsapp',
-      content: '(+91) 0449738637',
+      content: '044 9738 637',
     },
-    { icon: Mail, title: 'Send Email', content: 'support@vextorinnovations.com' },
+    { icon: Mail, title: 'Send Email', content: 'vextorinnovations@gmail.com' },
     {
       icon: MapPin,
       title: 'Our Locations',
-      content: 'Visakhapatnam, Andhra Pradesh',
+      content: '157 Nelson Street, Nhill-3418, Victoria, Australia.',
     },
   ]
 
