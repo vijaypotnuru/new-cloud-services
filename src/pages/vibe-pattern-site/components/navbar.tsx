@@ -65,7 +65,7 @@ export const Navbar = () => {
             className={`${isMobileMenuOpen ? 'block' : 'hidden'
               } 3xl:space-x-[24px] relative mx-auto w-full flex-col space-x-0 space-y-2 bg-[#2C307F] py-3 text-left text-sm font-normal uppercase text-white ease-in-out lg:right-[67px] lg:flex lg:w-fit lg:flex-row lg:space-x-3 lg:space-y-0 lg:bg-transparent lg:py-0 lg:text-center lg:text-white dark:lg:bg-transparent xl:space-x-4 2xl:space-x-5`}
           >
-            {['Home', 'AboutUs', 'Services', 'ContactUs'].map((item) => (
+            {['Home', 'Products', 'AboutUs', 'Services', 'ContactUs'].map((item) => (
               <NavLink
                 key={item}
                 to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}

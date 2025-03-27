@@ -68,6 +68,12 @@ const router = createBrowserRouter([
     }),
   },
   {
+    path: '/products',
+    lazy: async () => ({
+      Component: (await import('./pages/vibe-pattern-site/products')).default,
+    }),
+  },
+  {
     path: '/contactus',
     lazy: async () => ({
       Component: (await import('./pages/vibe-pattern-site/contactus')).default,
