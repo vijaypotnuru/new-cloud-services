@@ -1,6 +1,9 @@
 import { Download, FolderOpen } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const ProductList = () => {
+  const navigate = useNavigate()
+
   const products = [
     {
       domain: 'amazemedspa.com',
@@ -21,7 +24,7 @@ const ProductList = () => {
   }
 
   const handleFileManager = () => {
-    document.getElementById('fileInput').click()
+    navigate('/sign-up')
   }
 
   return (
@@ -60,7 +63,6 @@ const ProductList = () => {
         </table>
 
         <div className="mt-4 flex gap-4">
-          {/* Download Invoice Button */}
           <button
             className='flex items-center justify-center gap-2 rounded bg-blue-500 px-4 py-2 text-sm font-bold text-white hover:bg-blue-700 sm:w-auto sm:text-base'
             onClick={handleDownload}
@@ -68,7 +70,6 @@ const ProductList = () => {
             <Download className='h-5 w-5' /> Download Invoice
           </button>
 
-          {/* File Manager Button */}
           <button
             className='flex items-center justify-center gap-2 rounded bg-gray-600 px-4 py-2 text-sm font-bold text-white hover:bg-gray-800 sm:w-auto sm:text-base'
             onClick={handleFileManager}
@@ -76,7 +77,6 @@ const ProductList = () => {
             <FolderOpen className='h-5 w-5' /> File Manager
           </button>
 
-          {/* Hidden File Input */}
           <input type="file" id="fileInput" className="hidden" />
         </div>
       </div>
